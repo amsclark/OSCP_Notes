@@ -21,4 +21,5 @@ DNS Subdomain Enumeration:
 ```
 wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-20000.txt
 gobuster dns -d <hostname> -w subdomains-top1million-20000.txt -t 20
+wfuzz -w subdomains-top1million-2000.txt -u http://<hostname>/ -H 'Host: FUZZ.<hostname>' -t 50 --hc 302
 ```
