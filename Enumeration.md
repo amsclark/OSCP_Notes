@@ -11,3 +11,9 @@ Then I'll run a "--script vuln" on all the found ports to do an NSE vulnerabilit
 
 Then if I want to do a UDP scan: nmap -n -v -sU <IP> nmap -n -v -sU -p- -T5 <IP>
 ```
+
+Then if there is a web server, usually run:
+```
+dirb <url>
+nikto -h <hostname>
+```
