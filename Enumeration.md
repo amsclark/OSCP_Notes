@@ -19,5 +19,6 @@ nikto -h <hostname>
 ```
 DNS Subdomain Enumeration:
 ```
-gobuster dns -d <hostname> -w </path/to/wordlist.txt> -t 20
+wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-20000.txt
+gobuster dns -d <hostname> -w subdomains-top1million-20000.txt -t 20
 ```
