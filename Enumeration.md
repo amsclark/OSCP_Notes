@@ -17,3 +17,7 @@ Then if there is a web server, usually run:
 dirb <url>
 nikto -h <hostname>
 ```
+DNS Subdomain Enumeration:
+```
+gobuster dns -d <hostname> -w </path/to/wordlist.txt> -t 20
+```
