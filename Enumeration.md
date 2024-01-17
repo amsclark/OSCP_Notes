@@ -15,6 +15,8 @@ Then if I want to do a UDP scan: nmap -n -v -sU <IP> nmap -n -v -sU -p- -T5 <IP>
 Then if there is a web server, usually run:
 ```
 dirb <url>
+wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/directory-list-2.3-medium.txt
+gobuster gobuster dir -u <url> -w directory-list-2.3-medium.txt -x php,html
 nikto -h <hostname>
 ```
 DNS Subdomain Enumeration:
