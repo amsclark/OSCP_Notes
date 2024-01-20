@@ -7,7 +7,8 @@
 read -p "Enter the TARGET_IP: " TARGET_IP
 
 # 3. Export the ATTACK_IP and TARGET_IP to the current terminal session
-export ATTACK_IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk '{print $2}')
+export ATTACK_IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk '$2 ~ /^(192\.168\.|172\.(1[6-9]|2[0-9]|3[0-1])\.|10\.)/ {print $2; exit}'
+)
 export TARGET_IP="$TARGET_IP"
 
 # 4. Add export statements for ATTACK_IP and TARGET_IP to ~/.bashrc
