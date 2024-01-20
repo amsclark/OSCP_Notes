@@ -22,6 +22,10 @@ nmap -n -v -sT -A "$TARGET_IP" 2>&1 | tee basic_nmap.txt
 TARGET_MACHINE_NAME=$(cat basic_nmap.txt | sed -n 's/^|_http-title: Did not follow redirect to http:\/\/\(.*\)/\1/p' | sed 's/\/$//')
 
 # 7. Add the line TARGET_IP TARGET_MACHINE_NAME to /etc/hosts
-echo "$TARGET_IP $TARGET_MACHINE_NAME" | sudo tee -a /etc/hosts
+if [ -n "$TARGET_MACHINE_NAME" ]; then
+    echo "$TARGET_IP $TARGET_MACHINE_NAME" | sudo tee -a /etc/hosts
+else
+    echo "\$TARGET_MACHINE_NAME is empty. Skipping the operation."
+fi
 
 echo "Script completed successfully."
