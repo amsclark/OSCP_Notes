@@ -1,0 +1,3 @@
+1. Read the page source code and look for comments
+2. In the developer console, review all included files, like .js and .css files etc.
+3. Check for sql injection and command injection on all parameters.
