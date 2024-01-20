@@ -24,6 +24,7 @@ TARGET_MACHINE_NAME=$(cat basic_nmap.txt | sed -n 's/^|_http-title: Did not foll
 # 7. Add the line TARGET_IP TARGET_MACHINE_NAME to /etc/hosts
 if [ -n "$TARGET_MACHINE_NAME" ]; then
     echo "$TARGET_IP $TARGET_MACHINE_NAME" | sudo tee -a /etc/hosts
+    echo "export TARGET_MACHINE_NAME=\"$TARGET_MACHINE_NAME\"" >> .bashrc
 else
     echo "\$TARGET_MACHINE_NAME is empty. Skipping the operation."
 fi
