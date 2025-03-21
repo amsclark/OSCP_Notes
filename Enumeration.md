@@ -4,6 +4,8 @@ Per https://www.reddit.com/user/dw3113r/
 To get the standard ports and run all the scripts and checks on them: nmap -n -v -sT -A $TARGET_IP
 
 To do a full TCP scan: nmap -n -v -sT -p- -T5 $TARGET_IP
+nmap -sC -sV -p- -O -T4 --min-rate=1000 --max-retries=2 --open -oA full_scan <host>
+
 
 Then I'll usually run the first one again with -p <any additional ports found>
 
