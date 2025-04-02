@@ -28,4 +28,5 @@ DNS Subdomain Enumeration:
 wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-20000.txt
 gobuster dns -d $TARGET_MACHINE_NAME -w subdomains-top1million-20000.txt -t 20
 wfuzz -w subdomains-top1million-2000.txt -u http://$TARGET_MACHINE_NAME/ -H 'Host: FUZZ.$TARGET_MACHINE_NAME' -t 50 --hc 302
+wfuzz -u http://10.10.10.234 -H "Host: FUZZ.schooled.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt --hh 20750
 ```
